@@ -4,8 +4,6 @@ import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import { SortableContainer, SortableElement } from "react-sortable-hoc";
 import arrayMove from "array-move";
-import Box from "@material-ui/core/Box";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 const SortableItem = SortableElement(( value: any ) => (
@@ -23,11 +21,11 @@ const SortableItem = SortableElement(( value: any ) => (
   </>
 ));
 
-const SortableList = SortableContainer(({ photos }) => {
+const SortableList = SortableContainer(( photos: any ) => {
   return (
     <>
       <ImageList cols={3} gap={10}>
-        {photos.map((value, index) => (
+        {photos.map((value: any, index: number) => (
           <SortableItem
             key={`item-${value.title}`}
             index={index}
@@ -42,7 +40,7 @@ const SortableList = SortableContainer(({ photos }) => {
 function Home() {
   const [items, setItems] = useState(photos);
 
-  const onSortEnd = ({ oldIndex, newIndex }) => {
+  const onSortEnd = ( oldIndex: number, newIndex: number) => {
     <>
       {console.log("oldIndex:" + oldIndex)}
       {console.log("newIndex:" + newIndex)}
