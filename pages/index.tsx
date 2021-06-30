@@ -26,7 +26,7 @@ const SortableItem = SortableElement(({ value }) => (
 const SortableList = SortableContainer(({ photos }) => {
   return (
     <>
-      <ImageList cols={3} gap={10}>
+      <ImageList cols={3} gap={10} style={{ cursor: 'pointer' }}>
         {photos.map((value, index) => (
           <SortableItem
             key={`item-${value.title}`}
