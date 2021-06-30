@@ -8,7 +8,7 @@ import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-const SortableItem = SortableElement(({ value }) => (
+const SortableItem = SortableElement(( value: any ) => (
   <>
     <ImageListItem
       key={value.img}
