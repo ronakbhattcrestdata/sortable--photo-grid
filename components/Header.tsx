@@ -1,38 +1,35 @@
 import { useRouter } from "next/router";
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 export default function Header() {
   return (
     <div>
-      <Link href="/">Home</Link>
-      <Link href="/photoGrid">PhotoGrid</Link>
+      <AppBar color="primary" position="fixed">
+        <Toolbar>
+          <Link href="/">Home</Link>
+          <Link href="/inputs">Inputs</Link>
+          <Link href="/photoGrid">PhotoGrid</Link>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
 
 const Link = ({ children, href }) => {
   const router = useRouter();
-  const style = {
-    marginRight: 10,
-    color: router.asPath === href ? "red" : "black",
-  };
   return (
-    <a
-      href="#"
-      style={style}
+    <Button
+      color="inherit"
       onClick={(e) => {
         e.preventDefault();
-        // typically you want to use `next/link` for this usecase
-        // but this example shows how you can also access the router
-        // and use it manually
         router.push(href);
       }}
     >
       {children}
-      <style jsx>{`
-        a {
-          margin-right: 10px;
-        }
-      `}</style>
-    </a>
+    </Button>
   );
 };

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import styles from "../styles/Home.module.css";
+import React from "react";
 import Home from '../pages/Home';
 
 function home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Home />
     </div>
   );

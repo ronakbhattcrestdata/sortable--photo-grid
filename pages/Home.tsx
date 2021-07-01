@@ -1,10 +1,24 @@
-import Header from '../components/Header'
+import Header from "../components/Header";
+import Paper from "@material-ui/core/Paper";
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <p>HOME PAGE is here!</p>
+      <div style={{ marginTop: "65px" }}>
+        <Paper elevation={0}>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+          <p>Home Page</p>
+        </Paper>
+      </div>
     </div>
-  )
+  );
 }
