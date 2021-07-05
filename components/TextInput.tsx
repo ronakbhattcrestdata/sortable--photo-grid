@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
     textInput: {
       boxShadow: "0 2px 20px 2px rgba(0, 0, 0, 0.2)",
       borderRadius: "5px",
+      fontFamily: 'Futura PT Web Book',
       ...inputStyleCommon,
       "&:active": {
         border: "solid 1px #669ae8",
