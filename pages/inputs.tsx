@@ -131,7 +131,7 @@ export default function Inputs() {
           <TextInput
             inputComponent={TextMaskCustom as any}
             defaultValue="7465130958"
-            inputMode="numeric"
+            inputMode="tel"
           />
         </Paper>
       </div>
