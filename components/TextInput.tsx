@@ -13,7 +13,7 @@ export interface InputProps {
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>
     | undefined;
   inputComponent?: {} | any;
-  inputMode?: string | undefined;
+  inputMode?: '"text" | "none" | "search" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined';
 }
 const inputStyleCommon: React.CSSProperties = {
   background: "#fff",
