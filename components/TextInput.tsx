@@ -13,7 +13,6 @@ export interface InputProps {
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>
     | undefined;
   inputComponent?: {} | any;
-  inputMode?: '"text" | "none" | "search" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined';
 }
 const inputStyleCommon: React.CSSProperties = {
   background: "#fff",
@@ -69,7 +68,6 @@ export default function Inputs(props: InputProps) {
         defaultValue={props.defaultValue}
         error={props.error}
         InputProps={{
-          inputMode: props.inputMode,
           inputComponent: props.inputComponent,
           endAdornment: props.eyeIcon,
           classes: {
