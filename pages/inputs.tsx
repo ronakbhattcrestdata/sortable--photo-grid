@@ -1,16 +1,69 @@
 import React, { useState } from "react";
+import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Header from "../components/Header";
 import Paper from "@material-ui/core/Paper";
 import TextInput from "../components/TextInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
-// import Visibility from "@material-ui/icons/Visibility";
-// import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Visibility from "../public/visible.png";
-import VisibilityOff from "../public/not-visible.png";
-import Avatar from "@material-ui/core/Avatar";
+import MaskedInput from "react-text-mask";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import Visibility from "../public/visible.png";
+// import VisibilityOff from "../public/not-visible.png";
+// import Avatar from "@material-ui/core/Avatar";
+
+interface TextMaskCustomProps {
+  inputRef: (ref: HTMLInputElement | null) => void;
+}
+
+function TextMaskCustom(props: TextMaskCustomProps) {
+  const { inputRef, ...other } = props;
+
+  return (
+    <MaskedInput
+      {...other}
+      ref={(ref: any) => {
+        inputRef(ref ? ref.inputElement : null);
+      }}
+      mask={[
+        "(",
+        /[1-9]/,
+        /\d/,
+        /\d/,
+        ")",
+        " ",
+        /\d/,
+        /\d/,
+        /\d/,
+        "-",
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+      ]}
+      placeholderChar={"\u2000"}
+      showMask
+    />
+  );
+}
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: "flex",
+      "& > *": {
+        margin: theme.spacing(1),
+      },
+    },
+    small: {
+      width: "20px",
+      height: "20px",
+    },
+  })
+);
 
 export default function Inputs() {
+  const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
@@ -34,26 +87,24 @@ export default function Inputs() {
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
                 >
-                  {showPassword ? (
+                  {/* {showPassword ? (
                     <Avatar
                       alt="Visibility"
                       src={Visibility.src}
-                      style={{
-                        height: "20px",
-                        width: "20px",
-                      }}
+                      className={classes.small}
                     />
                   ) : (
                     <Avatar
                       alt="VisibilityOff"
                       src={VisibilityOff.src}
-                      style={{
-                        height: "20px",
-                        width: "20px",
-                      }}
+                      className={classes.small}
                     />
+                  )} */}
+                  {showPassword ? (
+                    <Visibility fontSize="small" />
+                  ) : (
+                    <VisibilityOff fontSize="small" />
                   )}
-                  {/* {showPassword ? <Visibility /> : <VisibilityOff />} */}
                 </IconButton>
               </InputAdornment>
             }
@@ -66,8 +117,13 @@ export default function Inputs() {
           <TextInput
             placeholder="Email"
             defaultValue="ronak@gmail"
-            label="Error"
             error={true}
+          />
+          <br />
+          <p>Masking Input</p>
+          <TextInput
+            inputComponent={TextMaskCustom as any}
+            defaultValue="7465130958"
           />
         </Paper>
       </div>
