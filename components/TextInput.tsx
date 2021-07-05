@@ -13,12 +13,14 @@ export interface InputProps {
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>
     | undefined;
   inputComponent?: {} | any;
+  inputMode?: string | undefined;
 }
 const inputStyleCommon: React.CSSProperties = {
   background: "#fff",
   width: "300px",
   height: "50px",
   border: "none",
+  fontFamily: "Futura PT Web Book",
 };
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -32,7 +34,6 @@ const useStyles = makeStyles((theme: Theme) =>
     textInput: {
       boxShadow: "0 2px 20px 2px rgba(0, 0, 0, 0.2)",
       borderRadius: "5px",
-      fontFamily: "Futura PT Web Book",
       ...inputStyleCommon,
       "&.Mui-focused": {
         // border: "solid 2px #669ae8",
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       "&.Mui-error": {
         // border: "solid 2px #ff1919",
-        borderRadius: "5px"
+        borderRadius: "5px",
       },
       "&:hover": {
         border: "none",
@@ -50,6 +51,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     textInputInside: {
       padding: "13px 46px 13px 16px",
+    },
+    textInputInsideWithIcon: {
+      padding: "13px 3px 13px 16px",
     },
   })
 );
@@ -65,17 +69,17 @@ export default function Inputs(props: InputProps) {
         defaultValue={props.defaultValue}
         error={props.error}
         InputProps={{
+          inputMode: props.inputMode,
           inputComponent: props.inputComponent,
           endAdornment: props.eyeIcon,
           classes: {
             root: classes.textInput,
-            input: classes.textInputInside,
+            input: props.eyeIcon? classes.textInputInsideWithIcon : classes.textInputInside
           },
         }}
       />
     </>
   );
 }
-
 
 // MuiInputBase-root MuiOutlinedInput-root makeStyles-textInput-4 MuiInputBase-formControl

@@ -6,7 +6,7 @@ body {
   background-color: #efeff0;
   color: #fff;
 }
-p{
+p {
   color: #3f3e50;
 }
 
@@ -26,11 +26,9 @@ p{
 }
 
 .MuiInputBase-input {
-  font-family: 'Futura PT Web Book';
+  font-family: "Futura PT Web Book";
 }
-/* button.MuiButtonBase-root.MuiIconButton-root {
-  padding: 0;
-} */
+
 a {
   color: inherit;
   text-decoration: none;

@@ -59,6 +59,12 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "20px",
       height: "20px",
     },
+    MuiIconButtonRoot: {
+      padding: '0px',
+      "&:hover": {
+        backgroundColor: "transparent"
+      }
+    }
   })
 );
 
@@ -86,7 +92,7 @@ export default function Inputs() {
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  style={{padding: '0px'}}
+                  className={classes.MuiIconButtonRoot}
                 >
                   {/* {showPassword ? (
                     <Avatar
@@ -125,6 +131,7 @@ export default function Inputs() {
           <TextInput
             inputComponent={TextMaskCustom as any}
             defaultValue="7465130958"
+            inputMode="numeric"
           />
         </Paper>
       </div>
