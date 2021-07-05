@@ -71,7 +71,7 @@ export default function Inputs() {
     <div>
       <Header />
       <div style={{ marginLeft: "30px", marginTop: "100px" }}>
-        <Paper elevation={0}>
+        <Paper elevation={0} style={{backgroundColor: "#efeff0"}}>
           <p>Normal Text Input</p>
           <TextInput placeholder="Name" />
           <br />
@@ -86,6 +86,7 @@ export default function Inputs() {
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
+                  style={{padding: '0px'}}
                 >
                   {/* {showPassword ? (
                     <Avatar

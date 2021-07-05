@@ -32,18 +32,21 @@ const useStyles = makeStyles((theme: Theme) =>
     textInput: {
       boxShadow: "0 2px 20px 2px rgba(0, 0, 0, 0.2)",
       borderRadius: "5px",
-      fontFamily: 'Futura PT Web Book',
+      fontFamily: "Futura PT Web Book",
       ...inputStyleCommon,
-      "&:active": {
-        border: "solid 1px #669ae8",
+      "&.Mui-focused": {
+        // border: "solid 2px #669ae8",
+        border: "none",
+        outline: "none",
+      },
+      "&.Mui-error": {
+        // border: "solid 2px #ff1919",
+        borderRadius: "5px"
       },
       "&:hover": {
         border: "none",
         outline: "none",
       },
-    },
-    ".eye-btn": {
-      padding: "0px",
     },
     textInputInside: {
       padding: "13px 46px 13px 16px",
@@ -67,9 +70,12 @@ export default function Inputs(props: InputProps) {
           classes: {
             root: classes.textInput,
             input: classes.textInputInside,
-          }
+          },
         }}
       />
     </>
   );
 }
+
+
+// MuiInputBase-root MuiOutlinedInput-root makeStyles-textInput-4 MuiInputBase-formControl
